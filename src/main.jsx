@@ -4,10 +4,10 @@ import {
   ArrowRight,
   BadgeCheck,
   Crown,
+  Gem,
   Headphones,
   MapPin,
   Menu,
-  PackageCheck,
   Search,
   ShieldCheck,
   ShoppingBag,
@@ -19,17 +19,17 @@ import {
 import "./styles.css";
 
 const products = [
-  { id: 1, title: "Royal Street Jacket", category: "Collections", price: 48000, size: "S-XL", image: "/assets/showcase/showcase-02.png", badge: "Hero" },
-  { id: 2, title: "Modern Hoodie Fit", category: "Shop", price: 42000, size: "S-XL", image: "/assets/showcase/showcase-03.png", badge: "New" },
-  { id: 3, title: "International Shirt Drop", category: "Collections", price: 25000, size: "S-XL", image: "/assets/showcase/showcase-04.png", badge: "Shirt" },
-  { id: 4, title: "Best Part Tee", category: "Featured", price: 30000, size: "S-XL", image: "/assets/showcase/showcase-05.png", badge: "Best" },
-  { id: 5, title: "Premium Testimonial Look", category: "Service", price: 39000, size: "S-XL", image: "/assets/showcase/showcase-06.png", badge: "Trust" },
-  { id: 6, title: "Weekend Outfit Set", category: "Shop", price: 47000, size: "S-XL", image: "/assets/showcase/showcase-07.png", badge: "Set" },
-  { id: 7, title: "Signature Store Finish", category: "Contact", price: 36000, size: "S-XL", image: "/assets/showcase/showcase-08.png", badge: "Store" },
-  { id: 8, title: "Full Kizigenza Moment", category: "Featured", price: 52000, size: "S-XL", image: "/assets/showcase/showcase-01.png", badge: "Premium" },
+  { id: 1, title: "Sculpted Satin Blazer", category: "Clothes", price: 68000, size: "S-XL", image: "/assets/editorial/tailoring.jpg", badge: "Tailored" },
+  { id: 2, title: "Cerulean Editorial Set", category: "Clothes", price: 72000, size: "S-XL", image: "/assets/editorial/clothes-editorial.jpg", badge: "Trending" },
+  { id: 3, title: "Cream Top Handle Bag", category: "Bags", price: 54000, size: "One size", image: "/assets/editorial/handbag-cream.jpg", badge: "Sculptural" },
+  { id: 4, title: "Soft Structure Shoulder Bag", category: "Bags", price: 59000, size: "One size", image: "/assets/editorial/bag-style.jpg", badge: "New" },
+  { id: 5, title: "Gold Layered Necklace", category: "Jewelry", price: 32000, size: "Adjustable", image: "/assets/editorial/gold-jewelry.jpg", badge: "Gold" },
+  { id: 6, title: "Minimal Ring Stack", category: "Jewelry", price: 28000, size: "6-9", image: "/assets/editorial/rings.jpg", badge: "Stacked" },
+  { id: 7, title: "Boutique Accessory Edit", category: "Accessories", price: 46000, size: "Curated", image: "/assets/editorial/accessories.jpg", badge: "Edit" },
+  { id: 8, title: "Kizigenza Store Curation", category: "Featured", price: 84000, size: "Premium", image: "/assets/editorial/boutique.jpg", badge: "Premium" },
 ];
 
-const categories = ["All", "Collections", "Featured", "Shop", "Service", "Contact"];
+const categories = ["All", "Clothes", "Bags", "Jewelry", "Accessories", "Featured"];
 const money = new Intl.NumberFormat("en-RW");
 
 function App() {
@@ -89,7 +89,7 @@ function Header({ cartCount, setCartOpen, menuOpen, setMenuOpen }) {
   return (
     <header className="site-header">
       <a className="brand" href="#top">
-        <img src="/assets/logo.png" alt="Kizigenza Fashion logo" />
+        <img src="/assets/kizigenza-logo.svg" alt="Kizigenza Fashion logo" />
         <span>Kizigenza</span>
       </a>
       <nav className="desktop-nav">
@@ -97,7 +97,7 @@ function Header({ cartCount, setCartOpen, menuOpen, setMenuOpen }) {
       </nav>
       <div className="header-actions">
         <button className="cart-button" type="button" onClick={() => setCartOpen(true)}>
-          <ShoppingBag size={18} /> Cart <span>{cartCount}</span>
+          <ShoppingBag size={18} /> <strong>Cart</strong> <span>{cartCount}</span>
         </button>
         <button className="menu-button" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Open menu">
           <Menu size={22} />
@@ -111,11 +111,11 @@ function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-copy">
-        <p className="eyebrow">Full rights reserved premium store</p>
-        <h1>Fashion and shoes with royal energy.</h1>
+        <p className="eyebrow">Kizigenza premium store</p>
+        <h1>Clean fashion, sculptural bags, golden details.</h1>
         <p>
-          Kizigenza Fashion LTD is a premium store experience for clothes, shoes,
-          collections, service, and fast WhatsApp ordering.
+          Kizigenza Fashion LTD is a polished store for trending clothes,
+          elegant handbags, refined jewelry, and fast WhatsApp ordering.
         </p>
         <div className="hero-actions">
           <a className="primary-link" href="#shop">Enter the store <ArrowRight size={18} /></a>
@@ -123,9 +123,9 @@ function Hero() {
         </div>
       </div>
       <div className="hero-gallery">
-        <FeatureImage className="main-card" src="/assets/showcase/showcase-02.png" label="Signature collection" />
-        <FeatureImage src="/assets/showcase/showcase-05.png" label="Featured pieces" />
-        <FeatureImage src="/assets/showcase/showcase-07.png" label="Store outfits" />
+        <FeatureImage className="main-card" src="/assets/editorial/clothes-editorial.jpg" label="Trending clothes" />
+        <FeatureImage src="/assets/editorial/handbag-cream.jpg" label="Sculptural bags" />
+        <FeatureImage src="/assets/editorial/gold-jewelry.jpg" label="Jewelry edit" />
       </div>
     </section>
   );
@@ -142,13 +142,13 @@ function FeatureImage({ src, label, className = "" }) {
 
 function Collections({ openCategory }) {
   const cards = [
-    { title: "Collections", category: "Collections", icon: Crown, image: "/assets/showcase/showcase-04.png", copy: "Curated fashion moments with premium layout and clear browsing." },
-    { title: "Featured", category: "Featured", icon: Sparkles, image: "/assets/showcase/showcase-01.png", copy: "Hero drops placed at the front of the store experience." },
-    { title: "Shop", category: "Shop", icon: ShoppingBag, image: "/assets/showcase/showcase-03.png", copy: "Products, prices, sizes, cart, and direct ordering flow." },
+    { title: "Clothes", category: "Clothes", icon: Crown, image: "/assets/editorial/tailoring.jpg", copy: "Clean tailoring, expressive color, soft structure, and modern silhouettes." },
+    { title: "Bags", category: "Bags", icon: ShoppingBag, image: "/assets/editorial/bag-style.jpg", copy: "Sculptural handbags, satin textures, and polished everyday shapes." },
+    { title: "Jewelry", category: "Jewelry", icon: Gem, image: "/assets/editorial/rings.jpg", copy: "Gold necklaces, ring stacks, and quiet shine for a refined finish." },
   ];
   return (
     <section className="page-section" id="collections">
-      <SectionIntro eyebrow="Collections" title="A premium store with real departments." copy="Each page section is built like a boutique department, not a simple shop block." />
+      <SectionIntro eyebrow="Collections" title="A calm store with clothes, bags, and jewelry." copy="The layout now feels like a clean fashion boutique: fewer distractions, stronger imagery, and clearer product departments." />
       <div className="collection-grid">
         {cards.map(({ title, category, icon: Icon, image, copy }) => (
           <article className="collection-card" key={title}>
@@ -169,15 +169,15 @@ function Collections({ openCategory }) {
 function Featured({ addToCart }) {
   return (
     <section className="page-section featured" id="featured">
-      <SectionIntro eyebrow="Featured" title="Premium pieces at the front of the store." copy="Large editorial presentation, polished product cards, and direct cart actions." />
+      <SectionIntro eyebrow="Featured" title="Premium pieces at the front of the store." copy="Editorial presentation, polished product cards, and direct cart actions for the strongest fashion moments." />
       <div className="featured-layout">
         <article className="editorial-card">
-          <img src="/assets/showcase/showcase-06.png" alt="Premium featured fashion" />
+          <img src="/assets/editorial/boutique.jpg" alt="Premium featured fashion" />
           <div>
             <p className="eyebrow">Store highlight</p>
-            <h3>Modern elegance collection</h3>
-            <p>A premium feature area for the store’s strongest fashion visuals.</p>
-            <button type="button" onClick={() => addToCart(products[4])}>Add feature</button>
+            <h3>The Boutique Edit</h3>
+            <p>A curated feature area for clothing, bags, jewelry, and accessories.</p>
+            <button type="button" onClick={() => addToCart(products[7])}>Add feature</button>
           </div>
         </article>
         <div className="featured-products">
@@ -192,11 +192,11 @@ function Shop({ activeCategory, setActiveCategory, query, setQuery, products, ad
   return (
     <section className="page-section shop" id="shop">
       <div className="shop-heading">
-        <SectionIntro eyebrow="Shop" title="The complete store." copy="Search, filter, review prices, add to cart, and order directly by WhatsApp." />
+        <SectionIntro eyebrow="Shop" title="The complete fashion store." copy="Search clothes, bags, jewelry, and accessories, then add items to cart for WhatsApp ordering." />
         <div className="store-tools">
           <label className="search-box">
             <Search size={18} />
-            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search collections, featured, service..." />
+            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search clothes, bags, jewelry..." />
           </label>
           <div className="filters">
             {categories.map((category) => (
@@ -215,14 +215,15 @@ function Shop({ activeCategory, setActiveCategory, query, setQuery, products, ad
 }
 
 function ProductCard({ product, addToCart }) {
+  const productClass = product.category.toLowerCase();
   return (
-    <article className="product-card">
+    <article className={`product-card ${productClass}`}>
       <div className="product-media">
         <img src={product.image} alt={product.title} loading="lazy" />
         <span>{product.badge}</span>
       </div>
       <div className="product-info">
-        <p>{product.category} · {product.size}</p>
+        <p>{product.category} / {product.size}</p>
         <h3>{product.title}</h3>
         <div className="price-row">
           <strong>{formatPrice(product.price)}</strong>
@@ -239,12 +240,12 @@ function Service() {
   const services = [
     { icon: ShieldCheck, title: "Full rights", copy: "Brand and footer clearly state full rights reserved." },
     { icon: Truck, title: "Delivery ready", copy: "Structured for pickup, delivery, and WhatsApp confirmation." },
-    { icon: BadgeCheck, title: "Store clarity", copy: "Customers see pages, prices, visuals, sizes, and cart state." },
+    { icon: BadgeCheck, title: "Store clarity", copy: "Customers see departments, prices, visuals, sizes, and cart state." },
     { icon: Headphones, title: "Direct support", copy: "The cart moves straight into a real support conversation." },
   ];
   return (
     <section className="page-section service" id="service">
-      <SectionIntro eyebrow="Service" title="Premium service, simple flow." copy="A store should feel beautiful and make the customer journey clear." />
+      <SectionIntro eyebrow="Service" title="Premium service, simple flow." copy="A clean store should feel beautiful and make the customer journey clear." />
       <div className="service-grid">
         {services.map(({ icon: Icon, title, copy }) => (
           <article key={title}>
@@ -274,7 +275,7 @@ function Contact({ orderUrl }) {
         </div>
       </div>
       <div className="contact-image">
-        <img src="/assets/showcase/showcase-08.png" alt="Store contact visual" />
+        <img src="/assets/editorial/accessories.jpg" alt="Fashion accessories contact visual" />
       </div>
     </section>
   );
@@ -283,10 +284,10 @@ function Contact({ orderUrl }) {
 function Footer() {
   return (
     <footer>
-      <img src="/assets/logo.png" alt="" />
+      <img src="/assets/kizigenza-logo.svg" alt="" />
       <div>
         <strong>Kizigenza Fashion LTD</strong>
-        <p>Premium clothes and shoes store. Full rights reserved.</p>
+        <p>Premium clothes, bags, and jewelry store. Full rights reserved.</p>
       </div>
       <div className="footer-stars">
         {[1, 2, 3, 4, 5].map((star) => <Star key={star} size={18} fill="currentColor" />)}
@@ -351,4 +352,3 @@ function formatPrice(value) {
 }
 
 createRoot(document.getElementById("root")).render(<App />);
-

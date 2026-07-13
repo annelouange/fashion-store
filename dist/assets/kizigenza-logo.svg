@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="112" fill="#09090F"/>
+  <path d="M128 118H186V240L305 118H382L260 242L391 394H315L217 280L186 311V394H128V118Z" fill="#FFF8EA"/>
+  <path d="M236 98L256 56L276 98L322 78L304 130H208L190 78L236 98Z" fill="#D6A536"/>
+  <path d="M208 144H304" stroke="#D6A536" stroke-width="12" stroke-linecap="round"/>
+  <path d="M196 412H316" stroke="#D6A536" stroke-width="10" stroke-linecap="round"/>
+  <path d="M256 184L284 230L256 276L228 230L256 184Z" fill="#D6A536"/>
+  <path d="M256 184L284 230H228L256 184Z" fill="#F7E1A0"/>
+  <circle cx="256" cy="56" r="10" fill="#F7E1A0"/>
+  <circle cx="184" cy="76" r="8" fill="#F7E1A0"/>
+  <circle cx="328" cy="76" r="8" fill="#F7E1A0"/>
+  <text x="256" y="462" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" letter-spacing="8" fill="#FFF8EA">KIZIGENZA</text>
+</svg>
